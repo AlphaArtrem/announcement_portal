@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block title %}Messages{% endblock %}
+{% block header %}
+<div class="container border-0" id="fullsize">
+  <div class="jumbotron" id="jumbotronhead">
+    <div class="text-center">
+        <h1>Messages</h1>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="jumbotron">
+    {% if login.type == "teacher" and delete == 1 %}
+    <div class="alert alert-success alert-dismissible text-center">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> Message Deleted.
+    </div>
+    {% endif %}
+    {% if login.type == "teacher" and delete == "alert" %}
+    <div class="alert alert-danger alert-dismissible text-center">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Failed!</strong> To Delete Message.
+    </div>
+    {% endif %}
+    <div class="container">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Message</th>
+            <th>Sender</th>
+            <th>Email</th>
+            <th>About<th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for message in messages %}
+          <tr>
+            <td>{{message.id}}</td>
+            <td><b>{{message.message}}</b></td>
+            <td>{{message.name}}</td>
+            <td>{{message.email}}</td>
+            <td>{{message.announcement}}</td>
+            <td><a href="/deletemessage?id={{message.id}}" class="btn btn-success btn-block">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  <div>
+<div>
+    {% endblock %}
+{% block footer %}
+<div class="container">
+  <div class="jumbotron" id="add">
+    <nav class = "pagination-centre">
+    <ul class="pagination pagination-lg">
+      <li class="page-item">
+        <a class="page-link" href="?pages=1">First</a>
+      </li>
+      {% for pages in range(pagination) %}
+      <li class="page-item {% if page == pages+1 %} active {% endif %}">
+        <a class="page-link" href="?pages={{pages+1}}">{{pages+1}}</a>
+      </li>
+        {% endfor %}
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?pages={{pagination}}">Last</a>
+      </li>
+    </ul>
+    </nav>
+  </div>
+</div>
+{% endblock %}

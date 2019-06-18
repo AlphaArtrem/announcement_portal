@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="jumbotron" id="add">
+    <div id="login-overlay" class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title text-center" id="myModalLabel">Login to Announcements</h4>
+              </div>
+              {% if alert %}
+              <div class="alert alert-danger alert-dismissible text-center">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>{{alert}}</strong>
+              </div>
+              {% endif %}
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <div class="well">
+                              <form id="loginForm" method="POST" action="/login" novalidate="novalidate">
+                                  <div class="form-group">
+                                      <label for="username" class="control-label">Username</label>
+                                      <input type="text" class="form-control" id="username" name="username" required="required" title="Please enter you username" placeholder="Username"/>
+                                      <span class="help-block"></span>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="password" class="control-label">Password</label>
+                                      <input type="password" class="form-control" id="password" name="password" required title="Please enter your password">
+                                      <span class="help-block"></span>
+                                  </div>
+                                  <button type="submit" class="btn btn-success btn-block" id="login">Login</button>
+                              </form>
+                          </div>
+                      </div>
+                      <div class="col-xs-6">
+                          <p class="lead">Register now</p>
+                          <br>
+                          <ul class="list-unstyled" style="line-height: 2">
+                              <li><span class="fa fa-check text-success"></span> See All Announcements</li>
+                              <li><span class="fa fa-check text-success"></span> Ask About Announcements</li>
+                              <li><span class="fa fa-check text-success"></span> Contact Adminstrators</li>
+                              <li><span class="fa fa-check text-success"></span> Contact Teachers</li>
+                          </ul>
+                          <br>
+                          <p><a href="/register" class="btn btn-info btn-block">Register Now!</a></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

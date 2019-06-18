@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block header %}
+<div class="container border-0" id="fullsize">
+  <div class="jumbotron" id="jumbotronhead">
+    <div class="text-center">
+      <br>
+        <h1>Welcome</h1>
+        <p>
+          Welcome to our Announcements portal.
+        </p>
+        <br>
+        {% if not login %}
+        <div id="login-overlay" class="modal-dialog">
+                  <div class="modal-body" id="centerdiv">
+                      <div class="row">
+                          <div class="text-left">
+                              <div class="well">
+                                <form id="loginForm" method="POST" action="/login" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <label for="username" class="control-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" required title="Please enter you username" placeholder="example@gmail.com">
+                                        <span class="help-block"></span>
+                                    <div class="form-group">
+                                        <label for="password" class="control-label">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" required title="Please enter your password">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+                                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                                </form>
+                              </div>
+                          </div>
+                  </div>
+              </div>
+          </div>
+        <p>
+          Checkout the latest news below and login for more.
+          <br>
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="jumbotron">
+    <div class="media">
+      <div class="media-left media-middle">
+          <img class="media-object" src="{{ url_for('static', filename='img/internet.png') }}">
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading">Latest News</h3>
+        <div class="container">
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Announcements</th>
+                <th>Time</th>
+                <th>By</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for notice in notices %}
+              <tr>
+                <td>{{notice.id}}</td>
+                <td><b>{{notice.announcement}}</b></td>
+                <td>{{notice.timestamp}}</td>
+                <td>{{notice.name}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

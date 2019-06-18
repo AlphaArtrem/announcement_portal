@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+	 <div class="jumbotron" id="add">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form method="POST" action="/contact">
+									{% if alert %}
+									<div class="alert alert-danger alert-dismissible text-center">
+										<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+										<strong>{{alert}}</strong>
+									</div>
+									{% endif %}
+									{% if success %}
+									<div class="alert alert-success alert-dismissible text-center">
+										<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+										<strong>{{success}}</strong>
+									</div>
+									{% endif %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" required="required" />
+                        </div>
+												<BR>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                        </div>
+												<BR>
+												<div class="form-group">
+                            <label for="name">
+                                Announcement ID</label>
+                            <input type="text" class="form-control" placeholder="Found On Announcements Page" name="announcement" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message <BR></label>
+                            <textarea name="message" id="message" class="form-control" rows="11" cols="25" required="required"
+                                placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Send Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form>
+            <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+            <address>
+                <strong>College Name</strong><br><br>
+                University Building<br>
+                State, Country<br>
+                <br>
+                Phone:(123) 456-7890
+            </address>
+            <address>
+                <strong>Support Email</strong><br><br>
+                <a href="mailto:support@department.edu">support@department.edu</a>
+            </address>
+            </form>
+        </div>
+    </div>
+	</div>
+</div>
+{% endblock %}

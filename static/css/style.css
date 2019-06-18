@@ -1,0 +1,75 @@
+#centerdiv
+{
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    color: black;
+}
+
+#jumbotronhead
+{
+    background-image: url(tourism.jpg);
+    color: white;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    border-radius: 0px;
+}
+
+.navbar
+{
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#fullsize
+{
+    width:100%;
+    padding: 0;
+    display: block;
+    border-radius: 0px;
+    margin-top: -20px;
+}
+
+.pagination-centre
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#add
+{
+    background-image: url(tourism.jpg);
+    color: black;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: lighten;
+}
+
+#down
+{
+    background-image: url(tourism.jpg);
+    color: white;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: lighten;
+    color: black;
+    padding: 10px 0px 10px ;
+}
+#red
+{
+    background-image: url(add.jpg);
+    color: white;
+    padding-top: 15%;
+    padding-bottom: 20%;
+}

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}Add New{% endblock %}
+{% block header %}
+<div class="container border-0" id="fullsize">
+  <div class="jumbotron" id="jumbotronhead">
+    <div class="text-center">
+        <h1>Add Announcements</h1>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="jumbotron" id="add">
+    {% if login.type == "teacher" and done == "success" %}
+    <div class="alert alert-success alert-dismissible text-center">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> Announcement Added.
+    </div>
+    {% endif %}
+    {% if login.type == "teacher" and done == "fail" %}
+    <div class="alert alert-danger alert-dismissible text-center">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Failed!</strong> To Add Announcement.
+    </div>
+    {% endif %}
+    <div id="login-overlay" class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title text-center" id="myModalLabel">Add New Announcement</h4>
+              </div>
+              <div class="modal-body" id="centerdiv">
+                  <div class="row">
+                      <div class="text-left">
+                          <div class="well">
+                              <form id="loginForm" method="POST" action="/add" novalidate="novalidate">
+                                  <div class="form-group">
+                                    <label for="comment">Announcement</label>
+                                    <textarea class="form-control" rows="5" id="comment" name="announcement" placeholder="Add New Announcement Here"></textarea>
+                                    <span class="help-block"></span>
+                                  </div>
+                                  <button type="submit" class="btn btn-success btn-block">Add</button>
+                              </form>
+                          </div>
+                      </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+  {% endblock %}
