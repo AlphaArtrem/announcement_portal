@@ -1,2 +1,4 @@
-# cs50_final_project
-Final Project For CS50 2018.
+# Announcement Portal
+An announcement portal made wil python and flask with two account types :
+* Students
+* Teachers
